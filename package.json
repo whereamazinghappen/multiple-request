@@ -1,0 +1,30 @@
+{
+  "name": "multiple-request",
+  "version": "1.0.0",
+  "description": "solve multiple request and retry request",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whereamazinghappen/multiple-request.git"
+  },
+  "keywords": [
+    "request",
+    "retry",
+    "promise"
+  ],
+  "author": "zhangyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whereamazinghappen/multiple-request/issues"
+  },
+  "homepage": "https://github.com/whereamazinghappen/multiple-request#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
