@@ -18,8 +18,8 @@ function singleRequest(url) {
   });
 }
 
-const { multipleRequestLimit } = require('../src/');
-const { multipleRequestRetry} = require('../src/');
+const { multipleRequestLimit } = require('../index.js');
+const { multipleRequestRetry} = require('../index.js');
 
 const url = ['a.com', 'b.com', 'c.com', 'd.com', 'e.com'];
 
