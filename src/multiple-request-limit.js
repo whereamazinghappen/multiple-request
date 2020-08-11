@@ -34,7 +34,7 @@ function multipleRequestLimit(urls = [], fn , userOptions) {
         let current = urls.indexOf(item);
         if (err) {
           !silence && log('error', item + ':' + messageInfo.noeRetryError);
-          results.push({index: current, item, err, message: '失败'});
+          results.push({index: current, item, res: err, message: '失败'});
         } else {
           !silence && log('success', item + ':' + messageInfo.noRetrySuccess);
           results.push({index : current, item, res, message: '成功'});
