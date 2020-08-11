@@ -28,7 +28,7 @@ function retry(fn, item, options) {
       });
     }
     attemp(fn(item, retryTotalTimes));
-  })
+  });
 }
 
 module.exports = retry;

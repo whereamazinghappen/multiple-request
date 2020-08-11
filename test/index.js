@@ -15,9 +15,14 @@ function singleRequest(url) {
   });
 }
 
-const { multipleRequest } = require('../src/');
+const { multipleRequestLimit } = require('../src/');
+const { multipleRequestRetry} = require('../src/');
 
 const url = ['a.com', 'b.com', 'c.com', 'd.com', 'e.com'];
-multipleRequest(url, singleRequest, { retryTotalTimes: 2, silence: false }).then((res) => {
+// multipleRequestLimit(url, singleRequest, { concurentNum: 2, silence: false }).then((res) => {
+//   console.log(res)
+// })
+
+multipleRequestRetry(url, singleRequest, { retryTotalTimes: 2, silence: false }).then((res) => {
   console.log(res)
 })

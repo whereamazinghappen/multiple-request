@@ -1,5 +1,7 @@
-const { multipleRequest } = require('./multiple-request');
+const { multipleRequestRetry } = require('./multiple-request-retry');
+const { multipleRequestLimit } = require('./multiple-request-limit');
 
 module.exports = {
-  multipleRequest
+  multipleRequestRetry,
+  multipleRequestLimit,
 }

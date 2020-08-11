@@ -4,21 +4,19 @@ const { messageInfo } = require('../config');
 
 // 默认配置
 const defaultOptions = {
-  concurentNum: -1, // 并发数
   retryTotalTimes: 0, // 重试次数
   silence: false, // 是否缄默
 }
 /**
- * @description 限制并发次数的批量网络请求执行，是否全部执行完成，根据结果数量判断
+ * @description 批量网络请求执行失败时自动重试机制，是否全部执行完成，根据结果数量判断
  * @param {Array} urls 网络请求地址集合
- * @param {Number} userOptions.concurentNum 最大并发数 默认-1表示不限制
  * @param {Number} userOptions.retryTotalTimes 失败后重试次数 默认0
  * @param {Boolean} userOptions.silence 是否输出执行日志
  * @param {Function} fn 网络请求发起及处理函数
  */
-function multipleRequest(urls = [], fn, userOptions) {
+function multipleRequestRetry(urls = [], fn, userOptions) {
   let options = Object.assign({}, defaultOptions, userOptions);
-  const { concurentNum, retryTotalTimes, silence } = options;
+  const { retryTotalTimes, silence } = options;
   let results = [];
   let retryTimes = 0;
   return new Promise((resolve, reject) => { 
@@ -32,7 +30,7 @@ function multipleRequest(urls = [], fn, userOptions) {
           // 判断是否需要重试 judge need retry or not
           if (!retryTotalTimes) {
             results.push({index, item, err, message: '失败', retryTimes});
-            return false
+            return false;
           }
           retry(fn, item, options).then((res) => {
             // 重试后成功 after retry some times success
@@ -63,4 +61,4 @@ function multipleRequest(urls = [], fn, userOptions) {
   })
 }
 
-module.exports = { multipleRequest };
+module.exports = { multipleRequestRetry };
