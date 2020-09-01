@@ -2,7 +2,7 @@
 solve multiple requests concurrence and retry
 ## Installation
 
-```$ npm install mutiple-request```
+```$ npm install multiple-request```
 
 ## Usage
 ### multipleRequestLimit(urls, fn, options)

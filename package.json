@@ -1,6 +1,6 @@
 {
   "name": "multiple-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "solve multiple request and retry request",
   "main": "index.js",
   "directories": {
